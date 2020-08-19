@@ -84,6 +84,12 @@ db.getCollection('students').find({
         ])
             
 12) Знайти дітей з не повною сімєю
+db.getCollection('students').find(
+ { $or:[
+     { "parents":{ $eq: null }},
+     {"parents":{$size: 1}}
+     ]}
+ );
             
 13) Знайти батьків які не працюють
 db.getCollection('students').find({
